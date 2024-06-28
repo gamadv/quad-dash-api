@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1719529422591,
+      "tag": "0000_real_wraith",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1719529592878,
+      "tag": "0001_opposite_toxin",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1719582269094,
+      "tag": "0002_wet_juggernaut",
+      "breakpoints": true
+    }
+  ]
+}
