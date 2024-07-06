@@ -4,7 +4,7 @@ import { drizzle } from 'drizzle-orm/postgres-js'
 import { migrate } from 'drizzle-orm/postgres-js/migrator'
 
 const connection = postgres(
-  'postgres://docker:docker@localhost:5432/pizza_shop',
+  'postgres://docker:docker@localhost:5432/quad_dash',
   { max: 1 },
 )
 const db = drizzle(connection)
