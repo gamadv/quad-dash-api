@@ -1,9 +1,10 @@
 import { Elysia } from 'elysia'
 
-const app = new Elysia().get('/', () => {
-  return 'Hello World!!'
-})
+import { registerCompany } from './routes/register-company'
+import { sendAuthLink } from './routes/send-auth-link'
 
-app.listen(3000, () => {
-  console.log('🔥 HTTP server running!!')
+const mainApp = new Elysia().use(registerCompany).use(sendAuthLink)
+
+mainApp.listen(3000, () => {
+  console.info('🔥 HTTP server running!!')
 })
