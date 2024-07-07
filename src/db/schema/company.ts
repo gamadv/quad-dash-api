@@ -1,7 +1,8 @@
-import { pgTable, text, timestamp } from 'drizzle-orm/pg-core'
-import { users } from './users'
-import { relations } from 'drizzle-orm'
 import { createId } from '@paralleldrive/cuid2'
+import { relations } from 'drizzle-orm'
+import { pgTable, text, timestamp } from 'drizzle-orm/pg-core'
+
+import { users } from './users'
 
 export const companies = pgTable('companies', {
   id: text('id')
