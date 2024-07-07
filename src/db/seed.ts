@@ -50,7 +50,7 @@ const [manager] = await db
 console.log(chalk.yellowBright('✔️ Created manager!'))
 
 /**
- * Create restaurant
+ * Create company
  */
 await db.insert(companies).values([
   {
