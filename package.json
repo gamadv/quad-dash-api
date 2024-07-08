@@ -14,8 +14,10 @@
     "lint": "eslint --fix src *.ts"
   },
   "dependencies": {
+    "@elysiajs/jwt": "^1.0.2",
     "@paralleldrive/cuid2": "^2.2.2",
     "chalk": "^5.3.0",
+    "dayjs": "^1.11.11",
     "drizzle-orm": "^0.31.2",
     "elysia": "^1.0.25",
     "postgres": "^3.4.4",
