@@ -8,7 +8,7 @@ export const auth = new Elysia().use(
     secret: env.JWT_SECRET_KEY,
     schema: t.Object({
       sub: t.String(),
-      restauranteId: t.Optional(t.String()),
+      companyId: t.Optional(t.String()),
     }),
   }),
 )

@@ -38,7 +38,7 @@ export const authenticateFromLink = new Elysia().use(auth).get(
 
     const token = await jwt.sign({
       sub: authLinkFromCode.userId,
-      restauranteId: managedCompany?.id,
+      companyId: managedCompany?.id,
     })
 
     auth.set({
