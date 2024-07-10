@@ -1,5 +1,6 @@
 services:
   postgres:
+    container_name: quad_dash_db
     image: bitnami/postgresql:latest
     ports:
       - '5432:5432'
