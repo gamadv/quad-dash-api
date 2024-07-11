@@ -26,6 +26,7 @@ This project was created using `bun init` in bun v1.1.17. [Bun](https://bun.sh) 
 
 Node must be present to execute migrations
 Bun supports **await** as top level with these options inside tsconfig.json > compilerOptions:
+Backend Cookies
 
 ```
 {
@@ -51,5 +52,3 @@ bun dev
 ## ⚠️ Tech Pendencies
 [ ] - Move bun to Container (Can't actually, because drizzle studio is not working properly on Docker, it ports cant exposed easily)
    *  Image: FROM oven/bun:latest
-
-[ ] - Private info move to ENVS
