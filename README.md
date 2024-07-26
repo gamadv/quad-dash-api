@@ -47,7 +47,8 @@ bun migrate
 ```bash
 bun dev
 ```
-
+### Relations
+- These code block only works for Drizzle to manage db relations
 
 ## ⚠️ Tech Pendencies
 [ ] - Move bun to Container (Can't actually, because drizzle studio is not working properly on Docker, it ports cant exposed easily)
