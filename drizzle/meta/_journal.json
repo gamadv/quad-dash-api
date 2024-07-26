@@ -29,6 +29,20 @@
       "when": 1720383484721,
       "tag": "0003_loving_smasher",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1722027977274,
+      "tag": "0004_nostalgic_photon",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1722031170178,
+      "tag": "0005_red_lake",
+      "breakpoints": true
     }
   ]
 }
