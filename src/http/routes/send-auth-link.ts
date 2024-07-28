@@ -55,7 +55,9 @@ export const sendAuthLink = new Elysia().post(
     })
 
     console.info('📨', nodemailer.getTestMessageUrl(info))
+    console.log('🚀 ~ authLinkCode:', authLinkCode)
   },
+
   {
     body: t.Object({
       email: t.String({ format: 'email' }),
