@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "68332a0c-1a37-4d24-a009-0b73f34c3633",
+		"name": "QuadDash_Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20969441"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"email\": \"admin@admin.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/authenticate",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth-Link",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/auth-links/authenticate?code=sjlyuluty46q0eg5g5i61wjy&redirect",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"auth-links",
+								"authenticate"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "sjlyuluty46q0eg5g5i61wjy"
+								},
+								{
+									"key": "redirect",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign-out",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/sign-out",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"sign-out"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/me",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/managed-company",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"managed-company"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Order Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/orders/aaw36b30naxug49anfh8ep2q",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders",
+								"aaw36b30naxug49anfh8ep2q"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/orders?pageIndex=0&status=delivered",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "0"
+								},
+								{
+									"key": "status",
+									"value": "delivered"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/orders/aaw36b30naxug49anfh8ep2q/approve",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders",
+								"aaw36b30naxug49anfh8ep2q",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/orders/aaw36b30naxug49anfh8ep2q/cancel",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders",
+								"aaw36b30naxug49anfh8ep2q",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dispatch Order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/orders/aaw36b30naxug49anfh8ep2q/dispatch",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders",
+								"aaw36b30naxug49anfh8ep2q",
+								"dispatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deliver Order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/orders/aaw36b30naxug49anfh8ep2q/deliver",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"orders",
+								"aaw36b30naxug49anfh8ep2q",
+								"deliver"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Metrics",
+			"item": [
+				{
+					"name": "Month Receipts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/metrics/month-receipt",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"metrics",
+								"month-receipt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Days Orders amount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/metrics/day-orders-amount",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"metrics",
+								"day-orders-amount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Month Orders amount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/metrics/month-orders-amount",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"metrics",
+								"month-orders-amount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Month Canceled Orders amount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/metrics/month-canceled-orders-amount",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"metrics",
+								"month-canceled-orders-amount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Popular Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/metrics/popular-products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"metrics",
+								"popular-products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Daily receipts by period",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/metrics/daily-receipt-in-period",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"metrics",
+								"daily-receipt-in-period"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000"
+		}
+	]
+}
