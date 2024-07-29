@@ -2,7 +2,7 @@ import Elysia, { t } from 'elysia'
 
 import { db } from '../../db/connection'
 import { auth } from '../auth'
-import { UnauthorizedError } from '../errors/unauthorized-error'
+import { NotAManagerError } from '../errors/not-a-manager-error'
 
 export const getOrderDetails = new Elysia().use(auth).get(
   '/orders/:orderId',
@@ -11,7 +11,7 @@ export const getOrderDetails = new Elysia().use(auth).get(
     const { companyId } = await getCurrentUser()
 
     if (!companyId) {
-      throw new UnauthorizedError()
+      throw new NotAManagerError()
     }
 
     const order = await db.query.orders.findFirst({
