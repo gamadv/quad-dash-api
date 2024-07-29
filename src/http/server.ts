@@ -1,3 +1,4 @@
+import cors from '@elysiajs/cors'
 import { Elysia } from 'elysia'
 
 import { approveOrder } from './routes/approve-orders'
@@ -18,8 +19,10 @@ import { getProfile } from './routes/get-profile'
 import { registerCompany } from './routes/register-company'
 import { sendAuthLink } from './routes/send-auth-link'
 import { signOut } from './routes/sign-out'
+import { updateProfile } from './routes/update-profile'
 
 const mainApp = new Elysia()
+  .use(cors())
   .use(registerCompany)
   .use(sendAuthLink)
   .use(authenticateFromLink)
@@ -37,7 +40,9 @@ const mainApp = new Elysia()
   .use(getMonthOrdersAmount)
   .use(getMonthCanceledOrdersAmount)
   .use(getPopularProducts)
+  .use(getPopularProducts)
   .use(getDailyReceiptInPeriod)
+  .use(updateProfile)
   .onError(({ code, error, set }) => {
     switch (code) {
       case 'VALIDATION': {
