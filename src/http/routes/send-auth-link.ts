@@ -1,11 +1,11 @@
 import { createId } from '@paralleldrive/cuid2'
 import Elysia, { t } from 'elysia'
-import nodemailer from 'nodemailer'
 
+// import nodemailer from 'nodemailer'
 import { db } from '../../db/connection'
 import { authLinks } from '../../db/schema'
 import { env } from '../../env'
-import { mail } from '../../lib/mail'
+// import { mail } from '../../lib/mail'
 
 export const sendAuthLink = new Elysia().post(
   '/authenticate',
@@ -35,27 +35,26 @@ export const sendAuthLink = new Elysia().post(
     authLink.searchParams.set('redirect', env.AUTH_REDIRECT_URL)
 
     // Enviar um e-mail
-    const info = await mail.sendMail({
-      from: {
-        name: 'Quad Dash',
-        address: 'auth@quaddash.com',
-      },
-      to: email,
-      html: `
-        <div>
-          <p>Use the following link to authenticate on Quad Dash:
-            <a rel="noreferrer" target="_blank" href="${authLink.toString()}">
-              ${authLink.toString()}
-            </a>
-          </p>
-        </div>
-      `,
-      subject: 'Authenticate to Quad Dash',
-      text: `Use the following link to authenticate on Quad Dash: ${authLink.toString()}`,
-    })
+    // const info = await mail.sendMail({
+    //   from: {
+    //     name: 'Quad Dash',
+    //     address: 'auth@quaddash.com',
+    //   },
+    //   to: email,
+    //   html: `
+    //     <div>
+    //       <p>Use the following link to authenticate on Quad Dash:
+    //         <a rel="noreferrer" target="_blank" href="${authLink.toString()}">
+    //           ${authLink.toString()}
+    //         </a>
+    //       </p>
+    //     </div>
+    //   `,
+    //   subject: 'Authenticate to Quad Dash',
+    //   text: `Use the following link to authenticate on Quad Dash: ${authLink.toString()}`,
+    // })
 
-    console.info('📨', nodemailer.getTestMessageUrl(info))
-    console.log('🚀 ~ authLinkCode:', authLinkCode)
+    console.info('📨', authLink.href)
   },
 
   {
