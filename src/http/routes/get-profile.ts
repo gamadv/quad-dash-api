@@ -7,7 +7,7 @@ import { UnauthorizedError } from '../errors/unauthorized-error'
 export const getProfile = new Elysia()
   .use(auth)
   .get('/me', async ({ getCurrentUser }) => {
-    const { userId, companyId } = await getCurrentUser()
+    const { userId } = await getCurrentUser()
 
     const user = await db.query.users.findFirst({
       where(fields, { eq }) {
