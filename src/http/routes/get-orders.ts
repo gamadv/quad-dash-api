@@ -11,7 +11,7 @@ export const getOrders = new Elysia().use(auth).get(
   '/orders',
   async ({ getCurrentUser, query }) => {
     const { companyId } = await getCurrentUser()
-    const { customerName, orderId, status, pageIndex = 1 } = query
+    const { customerName, orderId, status, pageIndex = 0 } = query
 
     if (!companyId) {
       throw new UnauthorizedError()
@@ -31,42 +31,41 @@ export const getOrders = new Elysia().use(auth).get(
         and(
           eq(orders.companyId, companyId),
           orderId ? ilike(orders.id, `%${orderId}%`) : undefined,
-          status ? eq(orders.id, status) : undefined,
+          status ? eq(orders.status, status) : undefined,
           customerName ? ilike(users.name, `%${customerName}%`) : undefined,
         ),
       )
 
-    const [amountOfOrdersQuery, allOrders] = await Promise.all([
-      db.select({ count: count() }).from(baseQuery.as('baseQuery')),
-      db
-        .select()
-        .from(baseQuery.as('baseQuery'))
-        .offset(pageIndex * 10)
-        .limit(10)
-        .orderBy((fields) => {
-          return [
-            sql`CASE ${fields.status}
-                WHEN 'pending' THEN 1
-                WHEN 'processing' THEN 2
-                WHEN 'delivering' THEN 3
-                WHEN 'delivered' THEN 4
-                WHEN 'canceled' THEN 99
-              END`,
-            desc(fields.createdAt),
-          ]
-        }),
-    ])
+    const [ordersCount] = await db
+      .select({ count: count() })
+      .from(baseQuery.as('baseQuery'))
 
-    const amountOfOrders = amountOfOrdersQuery[0].count
+    const allOrders = await baseQuery
+      .offset(pageIndex * 10)
+      .limit(10)
+      .orderBy((fields) => {
+        return [
+          sql`CASE ${fields.status}
+            WHEN 'pending' THEN 1
+            WHEN 'processing' THEN 2
+            WHEN 'delivering' THEN 3
+            WHEN 'delivered' THEN 4
+            WHEN 'canceled' THEN 99
+          END`,
+          desc(fields.createdAt),
+        ]
+      })
 
-    return {
+    const result = {
       orders: allOrders,
       meta: {
         pageIndex,
         perPage: 10,
-        totalCount: amountOfOrders,
+        totalCount: ordersCount.count,
       },
     }
+
+    return result
   },
   {
     query: t.Object({
