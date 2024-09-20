@@ -53,7 +53,7 @@ export const auth = new Elysia()
 
         if (!payload) {
           set.status = 401
-          throw new Error('Unauthorized.')
+          throw new Error('Unauthorized')
         }
 
         return {
