@@ -55,6 +55,10 @@ export const sendAuthLink = new Elysia().post(
     // })
 
     console.info('📨', authLink.href)
+
+    return {
+      devAuth: authLink.href,
+    }
   },
 
   {
